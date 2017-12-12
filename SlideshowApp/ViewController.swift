@@ -20,6 +20,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func slideGo(_ sender: Any) {
+    }
+    
+    @IBAction func slideBack(_ sender: Any) {
+    }
+    
+    @IBAction func slideStartStop(_ sender: Any) {
+    }
+    
 }
 
