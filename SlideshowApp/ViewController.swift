@@ -33,14 +33,44 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //while文にすれば、ループできるんでは？
     @IBAction func slideGo(_ sender: Any) {
+        if slideImageView.image == nil {
         slideImageView.image = UIImage(named: photos[0])
+        }
+        else if slideImageView.image == UIImage(named: photos[0]){
+            slideImageView.image = UIImage(named: photos[1])
+        }
+        else if slideImageView.image == UIImage(named: photos[1]){
+            slideImageView.image = UIImage(named: photos[2])
+        }
+        else if slideImageView.image == UIImage(named: photos[2]){
+            slideImageView.image = UIImage(named: photos[3])
+        }
+        else if slideImageView.image == UIImage(named: photos[3]){
+            slideImageView.image = UIImage(named: photos[4])
+        }
     }
     
-    
+    //for文でできる？
     @IBAction func slideBack(_ sender: Any) {
+        if slideImageView.image == nil {
         slideImageView.image = UIImage(named: photos[4])
+        }
+        else if slideImageView.image == UIImage(named: photos[4]){
+            slideImageView.image = UIImage(named: photos[3])
+        }
+        else if slideImageView.image == UIImage(named: photos[3]){
+            slideImageView.image = UIImage(named: photos[2])
+        }
+        else if slideImageView.image == UIImage(named: photos[2]){
+            slideImageView.image = UIImage(named: photos[1])
+        }
+        else if slideImageView.image == UIImage(named: photos[1]){
+            slideImageView.image = UIImage(named: photos[0])
+        }
     }
+    
     
     @IBAction func slideStartStop(_ sender: Any) {
     }
