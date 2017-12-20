@@ -20,11 +20,11 @@ class ViewController: UIViewController {
     
     var timer : Timer!
     var timer_sec :Double = 0
-    
+
     var imageNumber = 0
     
+    let photos = ["IMG_6658.jpg", "IMG_6671.jpg", "IMG_6675.jpg", "IMG_6680.jpg", "IMG_6716.jpg"]
     
-        let photos = ["IMG_6658.jpg", "IMG_6671.jpg", "IMG_6675.jpg", "IMG_6680.jpg", "IMG_6716.jpg"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,14 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer() {
-        timer_sec +=  2.0
+        print("Timer is on!")
+        if imageNumber < 4 {
+            imageNumber += 1
+        }
+        else if imageNumber == 4 {
+            imageNumber = 0
+        }
+        slideImageView.image = UIImage(named: photos[imageNumber])
     }
     
     @IBAction func slideGo(_ sender: Any) {
@@ -56,6 +63,9 @@ class ViewController: UIViewController {
         }
         else if slideImageView.image == UIImage(named: photos[3]){
             slideImageView.image = UIImage(named: photos[4])
+        }
+        else if slideImageView.image == UIImage(named: photos[4]){
+            slideImageView.image = UIImage(named: photos[0])
         }
     }
     
@@ -76,20 +86,16 @@ class ViewController: UIViewController {
         else if slideImageView.image == UIImage(named: photos[1]){
             slideImageView.image = UIImage(named: photos[0])
         }
+        else if slideImageView.image == UIImage(named: photos[0]){
+            slideImageView.image = UIImage(named: photos[4])
+        }
     }
     
     
 
     
     @IBAction func slideStartStop(_ sender: Any) {
-       updateTimer()
-        if timer == nil {
-            slideImageView.image = UIImage(named: photos[0])
-        } else if timer != nil {
-            imageNumber += 1
-            slideImageView.image = UIImage(named: photos[imageNumber])
-        }
-        
+       didReceiveMemoryWarning()
     }
     
 }
