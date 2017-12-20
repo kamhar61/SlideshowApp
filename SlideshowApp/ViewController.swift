@@ -18,10 +18,13 @@ class ViewController: UIViewController {
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
     
-    let photos = ["IMG_6658.jpg", "IMG_6671.jpg", "IMG_6675.jpg", "IMG_6680.jpg", "IMG_6716.jpg"]
+    var timer : Timer!
+    var timer_sec :Double = 0
+    
+    var imageNumber = 0
     
     
-
+        let photos = ["IMG_6658.jpg", "IMG_6671.jpg", "IMG_6675.jpg", "IMG_6680.jpg", "IMG_6716.jpg"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +34,13 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
-
-    //while文にすれば、ループできるんでは？
+    
+    @objc func updateTimer() {
+        timer_sec +=  2.0
+    }
+    
     @IBAction func slideGo(_ sender: Any) {
         if slideImageView.image == nil {
         slideImageView.image = UIImage(named: photos[0])
@@ -52,7 +59,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //for文でできる？
+    
     @IBAction func slideBack(_ sender: Any) {
         if slideImageView.image == nil {
         slideImageView.image = UIImage(named: photos[4])
@@ -72,7 +79,17 @@ class ViewController: UIViewController {
     }
     
     
+
+    
     @IBAction func slideStartStop(_ sender: Any) {
+       updateTimer()
+        if timer == nil {
+            slideImageView.image = UIImage(named: photos[0])
+        } else if timer != nil {
+            imageNumber += 1
+            slideImageView.image = UIImage(named: photos[imageNumber])
+        }
+        
     }
     
 }
