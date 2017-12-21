@@ -15,16 +15,14 @@ class ViewController: UIViewController {
     @IBAction func onTapImage(_ sender: Any) {
     }
     
+    @IBOutlet weak var button: UIButton!
+    
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
     
     var timer : Timer!
-    var timer_sec :Double = 0
-
     var imageNumber = 0
-    
     let photos = ["IMG_6658.jpg", "IMG_6671.jpg", "IMG_6675.jpg", "IMG_6680.jpg", "IMG_6716.jpg"]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +32,11 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    @objc func updateTimer() {
+   
+    
+    @objc func updateTimer(timer: Timer) {
         print("Timer is on!")
         if imageNumber < 4 {
             imageNumber += 1
@@ -72,7 +71,7 @@ class ViewController: UIViewController {
     
     @IBAction func slideBack(_ sender: Any) {
         if slideImageView.image == nil {
-        slideImageView.image = UIImage(named: photos[4])
+            slideImageView.image = UIImage(named: photos[4])
         }
         else if slideImageView.image == UIImage(named: photos[4]){
             slideImageView.image = UIImage(named: photos[3])
@@ -91,12 +90,17 @@ class ViewController: UIViewController {
         }
     }
     
-    
-
-    
     @IBAction func slideStartStop(_ sender: Any) {
-       didReceiveMemoryWarning()
+        if self.timer == nil{
+        self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        button.setTitle("停止", for: .normal)
+        didReceiveMemoryWarning()
+        }
+        else if self.timer != nil{
+            self.timer.invalidate()
+            self.timer = nil
+            button.setTitle("再生", for: .normal)
+        }
     }
-    
 }
 

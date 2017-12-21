@@ -38,17 +38,17 @@
                                             <action selector="slideGo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w21-tZ-TBL"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYG-Vt-a9P">
+                                        <rect key="frame" x="149" y="345" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="戻る"/>
+                                        <connections>
+                                            <action selector="slideBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ilp-vd-OgF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYG-Vt-a9P">
-                                <rect key="frame" x="153" y="364" width="31" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="戻る"/>
-                                <connections>
-                                    <action selector="slideBack:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ilp-vd-OgF"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trip to... " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06y-68-UgY">
                                 <rect key="frame" x="107" y="20" width="123" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -64,9 +64,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7l-gZ-UVh">
-                                <rect key="frame" x="215" y="364" width="66" height="30"/>
+                                <rect key="frame" x="233" y="364" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="再生/停止"/>
+                                <state key="normal" title="再生"/>
                                 <connections>
                                     <action selector="slideStartStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FUn-gz-AO9"/>
                                 </connections>
@@ -76,6 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="i7l-gZ-UVh" id="XEg-Hb-SWZ"/>
                         <outlet property="slideImageView" destination="lwd-T7-f2G" id="apH-ir-qFi"/>
                     </connections>
                 </viewController>
@@ -87,7 +88,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="110" y="33"/>
+            <point key="canvasLocation" x="109.59999999999999" y="32.833583208395808"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="0Ox-d7-7eh">
