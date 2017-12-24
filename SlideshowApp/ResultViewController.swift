@@ -10,12 +10,16 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var largedImage: UIImageView!
     
+
+    var showImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        largedImage.image = showImage
+        
     }
 
     override func didReceiveMemoryWarning() {

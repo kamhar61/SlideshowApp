@@ -77,7 +77,9 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="i7l-gZ-UVh" id="XEg-Hb-SWZ"/>
-                        <outlet property="slideImageView" destination="lwd-T7-f2G" id="apH-ir-qFi"/>
+                        <outlet property="buttonBack" destination="OYG-Vt-a9P" id="poW-r6-rgr"/>
+                        <outlet property="buttonGo" destination="mvj-wG-HOF" id="QLg-tB-CiA"/>
+                        <outlet property="slideImageView" destination="lwd-T7-f2G" id="Gtc-3U-6ac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -107,13 +109,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="戻る"/>
                                 <connections>
-                                    <segue destination="Xr8-hd-oBc" kind="unwind" unwindAction="unwind:" id="Fcz-9V-LOB"/>
+                                    <segue destination="Xr8-hd-oBc" kind="unwind" unwindAction="unwind:" id="bJj-HI-VdD"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="i9e-eT-wmb"/>
                     </view>
+                    <connections>
+                        <outlet property="largedImage" destination="g2N-al-21u" id="5nH-5E-YLf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYb-cc-oV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Xr8-hd-oBc" userLabel="Exit" sceneMemberID="exit"/>
