@@ -51,6 +51,9 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer(timer: Timer) {
+        if slideImageView.image == nil {
+            imageNumber = 0
+        }
         if imageNumber < 4 {
             imageNumber += 1
         }
@@ -63,6 +66,8 @@ class ViewController: UIViewController {
     
     @IBAction func slideGo(_ sender: Any) {
         if self.timer == nil {
+            buttonGo.isEnabled = true
+            
             if slideImageView.image == nil {
                 slideImageView.image = UIImage(named: photos[0])
             }
@@ -81,14 +86,18 @@ class ViewController: UIViewController {
             else if slideImageView.image == UIImage(named: photos[4]){
                 slideImageView.image = UIImage(named: photos[0])
             }
+            
+        } else if self.timer != nil{
+            buttonGo.isEnabled = false
         }
-        else if (self.timer != nil) {
         }
-    }
+    
     
     
     @IBAction func slideBack(_ sender: Any) {
         if self.timer == nil {
+            buttonBack.isEnabled = true
+            
             if slideImageView.image == nil {
                 slideImageView.image = UIImage(named: photos[4])
             }
@@ -109,6 +118,7 @@ class ViewController: UIViewController {
             }
             }
         else if (self.timer != nil) {
+            buttonBack.isEnabled = false
         }
         }
     

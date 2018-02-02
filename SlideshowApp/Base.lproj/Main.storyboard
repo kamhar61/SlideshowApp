@@ -134,15 +134,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-al-21u">
-                                <rect key="frame" x="42" y="20" width="236" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="AaO-SB-Ljs"/>
-                                    <constraint firstAttribute="width" constant="236" id="fQA-ii-C77"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vm-wA-vq6">
-                                <rect key="frame" x="145" y="306" width="31" height="30"/>
+                                <rect key="frame" x="145" y="408" width="31" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8nC-rL-G3l"/>
                                 </constraints>
@@ -151,19 +144,19 @@
                                     <segue destination="Xr8-hd-oBc" kind="unwind" unwindAction="unwind:" id="bJj-HI-VdD"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2N-al-21u">
+                                <rect key="frame" x="20" y="91" width="280" height="291"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="i9e-eT-wmb" firstAttribute="trailing" secondItem="g2N-al-21u" secondAttribute="trailing" constant="42" id="83A-UJ-2NX"/>
-                            <constraint firstItem="g2N-al-21u" firstAttribute="leading" secondItem="i9e-eT-wmb" secondAttribute="leading" constant="42" id="Nl3-w2-f4b"/>
-                            <constraint firstItem="5vm-wA-vq6" firstAttribute="top" secondItem="g2N-al-21u" secondAttribute="bottom" constant="36" id="PKF-ck-NcW"/>
-                            <constraint firstItem="i9e-eT-wmb" firstAttribute="trailing" secondItem="g2N-al-21u" secondAttribute="trailing" constant="42" id="Yzl-Gg-R2P"/>
-                            <constraint firstItem="g2N-al-21u" firstAttribute="centerX" secondItem="YZE-J1-wWR" secondAttribute="centerX" id="ezi-58-6Cq"/>
-                            <constraint firstItem="g2N-al-21u" firstAttribute="leading" secondItem="i9e-eT-wmb" secondAttribute="leading" constant="42" id="fVs-wa-mbc"/>
-                            <constraint firstItem="5vm-wA-vq6" firstAttribute="centerX" secondItem="YZE-J1-wWR" secondAttribute="centerX" id="ocs-Ab-yJz"/>
-                            <constraint firstItem="g2N-al-21u" firstAttribute="top" secondItem="i9e-eT-wmb" secondAttribute="top" id="pfe-0j-4Fg"/>
-                            <constraint firstItem="i9e-eT-wmb" firstAttribute="trailing" secondItem="g2N-al-21u" secondAttribute="trailing" constant="42" id="sXO-CH-j3a"/>
-                            <constraint firstItem="g2N-al-21u" firstAttribute="top" secondItem="i9e-eT-wmb" secondAttribute="top" id="zbB-HT-DUP"/>
+                            <constraint firstItem="i9e-eT-wmb" firstAttribute="trailing" secondItem="g2N-al-21u" secondAttribute="trailing" constant="20" id="2pA-Xf-u7E"/>
+                            <constraint firstItem="g2N-al-21u" firstAttribute="centerX" secondItem="YZE-J1-wWR" secondAttribute="centerX" id="LV4-I0-hDH"/>
+                            <constraint firstItem="5vm-wA-vq6" firstAttribute="centerX" secondItem="YZE-J1-wWR" secondAttribute="centerX" id="VW3-wU-es3"/>
+                            <constraint firstItem="g2N-al-21u" firstAttribute="top" secondItem="i9e-eT-wmb" secondAttribute="top" constant="71" id="W8i-9w-jGo"/>
+                            <constraint firstItem="g2N-al-21u" firstAttribute="leading" secondItem="i9e-eT-wmb" secondAttribute="leading" constant="20" id="diC-4b-ryM"/>
+                            <constraint firstItem="5vm-wA-vq6" firstAttribute="top" secondItem="g2N-al-21u" secondAttribute="bottom" constant="26" id="rpM-4Y-Abe"/>
+                            <constraint firstItem="i9e-eT-wmb" firstAttribute="bottom" secondItem="5vm-wA-vq6" secondAttribute="bottom" constant="130" id="vYX-MX-l5U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i9e-eT-wmb"/>
                     </view>
@@ -174,7 +167,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYb-cc-oV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Xr8-hd-oBc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="819.375" y="32.5"/>
+            <point key="canvasLocation" x="819.375" y="31.690140845070424"/>
         </scene>
     </scenes>
 </document>
