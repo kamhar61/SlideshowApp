@@ -44,93 +44,76 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        
         let resultViewController:ResultViewController = segue.destination as! ResultViewController
         
-         resultViewController.showImage = slideImageView.image!
+        resultViewController.showImage = slideImageView.image!
+        
+        timerOnOff()
     }
     
     @objc func updateTimer(timer: Timer) {
         if slideImageView.image == nil {
             imageNumber = 0
         }
-        if imageNumber < 4 {
+        else if imageNumber < photos.count - 1 {
             imageNumber += 1
         }
-        else if imageNumber == 4 {
+        else if imageNumber == photos.count - 1 {
             imageNumber = 0
         }
         slideImageView.image = UIImage(named: photos[imageNumber])
     }
-    
+
     
     @IBAction func slideGo(_ sender: Any) {
-        if self.timer == nil {
-            buttonGo.isEnabled = true
-            
-            if slideImageView.image == nil {
-                slideImageView.image = UIImage(named: photos[0])
-            }
-            else if slideImageView.image == UIImage(named: photos[0]){
-                slideImageView.image = UIImage(named: photos[1])
-            }
-            else if slideImageView.image == UIImage(named: photos[1]){
-                slideImageView.image = UIImage(named: photos[2])
-            }
-            else if slideImageView.image == UIImage(named: photos[2]){
-                slideImageView.image = UIImage(named: photos[3])
-            }
-            else if slideImageView.image == UIImage(named: photos[3]){
-                slideImageView.image = UIImage(named: photos[4])
-            }
-            else if slideImageView.image == UIImage(named: photos[4]){
-                slideImageView.image = UIImage(named: photos[0])
-            }
-            
-        } else if self.timer != nil{
-            buttonGo.isEnabled = false
+        
+        if slideImageView.image == nil {
+            imageNumber = 0
         }
+        else if imageNumber < photos.count - 1 {
+            imageNumber += 1
         }
+        else if imageNumber == photos.count - 1 {
+            imageNumber = 0
+        }
+        slideImageView.image = UIImage(named: photos[imageNumber])
+        
+    }
     
     
     
     @IBAction func slideBack(_ sender: Any) {
-        if self.timer == nil {
-            buttonBack.isEnabled = true
-            
-            if slideImageView.image == nil {
-                slideImageView.image = UIImage(named: photos[4])
-            }
-            else if slideImageView.image == UIImage(named: photos[4]){
-                slideImageView.image = UIImage(named: photos[3])
-            }
-            else if slideImageView.image == UIImage(named: photos[3]){
-                slideImageView.image = UIImage(named: photos[2])
-            }
-            else if slideImageView.image == UIImage(named: photos[2]){
-                slideImageView.image = UIImage(named: photos[1])
-            }
-            else if slideImageView.image == UIImage(named: photos[1]){
-                slideImageView.image = UIImage(named: photos[0])
-            }
-            else if slideImageView.image == UIImage(named: photos[0]){
-                slideImageView.image = UIImage(named: photos[4])
-            }
-            }
-        else if (self.timer != nil) {
-            buttonBack.isEnabled = false
+        
+        if slideImageView.image == nil {
+            imageNumber = 4
         }
+        else if imageNumber > 0 && imageNumber <= photos.count - 1 {
+            imageNumber -= 1
+        }
+        else if imageNumber == 0 {
+            imageNumber = 4
+        }
+        slideImageView.image = UIImage(named: photos[imageNumber])
+        
         }
     
     
     @IBAction func slideStartStop(_ sender: Any) {
+        timerOnOff()
+    }
+    
+    func timerOnOff() {
         if self.timer == nil{
-        self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
-        button.setTitle("停止", for: .normal)
+            self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            buttonGo.isEnabled = false
+            buttonBack.isEnabled = false
+            button.setTitle("停止", for: .normal)
         }
-        else if self.timer != nil{
+        else {
             self.timer.invalidate()
             self.timer = nil
+            buttonGo.isEnabled = true
+            buttonBack.isEnabled = true
             button.setTitle("再生", for: .normal)
         }
     }
