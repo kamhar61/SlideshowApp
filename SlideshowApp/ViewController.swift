@@ -33,6 +33,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        imageNumber = 0
+        slideImageView.image = UIImage(named: photos[imageNumber])
+        
     }
 
     
@@ -48,7 +51,14 @@ class ViewController: UIViewController {
         
         resultViewController.showImage = slideImageView.image!
         
-        timerOnOff()
+        if self.timer != nil{
+            self.timer.invalidate()
+            self.timer = nil
+            buttonGo.isEnabled = true
+            buttonBack.isEnabled = true
+            button.setTitle("再生", for: .normal)
+        }
+        
     }
     
     @objc func updateTimer(timer: Timer) {
@@ -99,10 +109,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func slideStartStop(_ sender: Any) {
-        timerOnOff()
-    }
-    
-    func timerOnOff() {
         if self.timer == nil{
             self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             buttonGo.isEnabled = false
@@ -116,6 +122,7 @@ class ViewController: UIViewController {
             buttonBack.isEnabled = true
             button.setTitle("再生", for: .normal)
         }
+    
     }
 
 }
